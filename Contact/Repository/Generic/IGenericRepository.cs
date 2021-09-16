@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contact.Repository.Generic
 {
+    #region Generic Interface
     public interface IGenericRepository<T> where T: class
     {
         IEnumerable<T> GetAll();
@@ -15,4 +16,5 @@ namespace Contact.Repository.Generic
         void Delete(object id);
         void Save();
     }
+    #endregion
 }

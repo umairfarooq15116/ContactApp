@@ -1,29 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using Contact.Models;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Contact.Repository.Generic
 {
-    class GenericRepository<T> : IGenericRepository<T> where T: class
+    class ContactRepo : IGenericRepository<Contacts>
     {
+        private readonly string ConnectionString;
+        public ContactRepo()
+        {
+        }
+
         public void Delete(object id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<T> GetAll()
+        public IEnumerable<Contacts> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public T GetByID(object id)
+        public Contacts GetByID(object id)
         {
             throw new NotImplementedException();
         }
 
-        public void Insert(T obj)
+        public void Insert(Contacts obj)
         {
             throw new NotImplementedException();
         }
@@ -33,7 +39,7 @@ namespace Contact.Repository.Generic
             throw new NotImplementedException();
         }
 
-        public void Update(T obj)
+        public void Update(Contacts obj)
         {
             throw new NotImplementedException();
         }

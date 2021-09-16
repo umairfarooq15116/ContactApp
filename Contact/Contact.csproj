@@ -55,7 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Repository\Generic\GenericRepository.cs" />
+    <Compile Include="Models\Contacts.cs" />
+    <Compile Include="Repository\Generic\ContactRepo.cs" />
     <Compile Include="Repository\Generic\IGenericRepository.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
