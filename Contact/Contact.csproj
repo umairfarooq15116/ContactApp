@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,7 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAL\Contact\ContactDAL.cs" />
+    <Compile Include="DAL\Database\Connection.cs" />
+    <Compile Include="DAL\Phone\PhoneDAL.cs" />
+    <Compile Include="DAL\User\UserDAL.cs" />
     <Compile Include="Models\Contacts.cs" />
+    <Compile Include="Models\PhoneNo.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Repository\Generic\ContactRepo.cs" />
     <Compile Include="Repository\Generic\IGenericRepository.cs" />
     <Page Include="MainWindow.xaml">
@@ -97,8 +104,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

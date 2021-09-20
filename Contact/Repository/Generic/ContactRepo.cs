@@ -9,7 +9,6 @@ namespace Contact.Repository.Generic
 {
     class ContactRepo : IGenericRepository<Contacts>
     {
-        private readonly string ConnectionString;
         public ContactRepo()
         {
         }

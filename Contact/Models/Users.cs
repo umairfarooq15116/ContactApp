@@ -6,18 +6,13 @@ using System.Threading.Tasks;
 
 namespace Contact.Models
 {
-    #region Contact Model
-    public class Contacts
+    public class Users
     {
-        public int ContId;
-        public int ContNo;
+        public int UserId;
         public string Name;
         public string Email;
-        public int UserId;
+        public string Password;
         public DateTime CreationDte;
         public DateTime UpdatedDate;
-        public bool IsActive;
-        public List<PhoneNo> phones;
     }
-    #endregion
 }
