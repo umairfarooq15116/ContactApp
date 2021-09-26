@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contact.Models
+namespace Contact.Model
 {
     #region Contact Model
     public class Contacts

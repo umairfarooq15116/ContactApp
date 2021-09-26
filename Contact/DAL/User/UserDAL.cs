@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Contact.Models;
+using Contact.Model;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -18,7 +18,7 @@ namespace Contact.DAL.User
 
         #region Public Methods
         //To Add new User record
-        public static void RegisterUser(Users user)
+        public static void SaveUser(Users user)
         {
             try
             {
@@ -52,6 +52,40 @@ namespace Contact.DAL.User
             {
                 Console.WriteLine("OOPs, something went wrong." + ex);
             }
+        }
+
+        //To Verify User Name & Passowrd
+        public static bool VerifyUser(string username,string password)
+        {
+            try
+            {
+                // Creating Connection
+                using (SqlConnection con = new SqlConnection(ConnectionString))
+                {
+                    SqlCommand cmd = new SqlCommand()
+                    {
+                        Connection = con,
+                        CommandText = "spVerifyUser",
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    //Set SqlParameters
+                    cmd.Parameters.AddWithValue("@UserName", username);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    // Opening Connection  
+                    con.Open();
+                    // Executing the SQL query or SP
+                    int isExist = (int)cmd.ExecuteScalar();
+                    if (isExist > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("OOPs, something went wrong." + ex);
+            }
+            return false;
         }
         #endregion
     }

@@ -1,5 +1,5 @@
 ﻿using Contact.DAL.Database;
-using Contact.Models;
+using Contact.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;

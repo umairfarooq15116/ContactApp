@@ -1,0 +1,30 @@
+﻿<Window x:Class="Contact.View.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Contact.View"
+        xmlns:components="clr-namespace:Contact.Components"
+        mc:Ignorable="d"
+        Title="Login" Height="250" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+      <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="Contact" Grid.Row="0"  HorizontalAlignment="Center"/>
+        <Label Content="Username :" Grid.Row="1" HorizontalAlignment="Left" Margin="30,0,0,0"/>
+        <TextBox  Grid.Row="1"  Width="180" Height="25" HorizontalAlignment="Center" Margin="8,0,0,8"
+                  Text="{Binding Path=Name,Mode=TwoWay}"/>
+        <Label Content="Password :" Grid.Row="2" HorizontalAlignment="Left" Margin="30,0,0,0"/>
+        <components:BindablePasswordBox  Grid.Row="2" Width="180" Height="25"  HorizontalAlignment="Center" Margin="8,0,0,8"
+                  Password="{Binding Password,Mode=TwoWay}"/>
+        <Button Content="LOGIN" Grid.Row="3" Width="85" Height="25" HorizontalAlignment="Center" Margin="0,20,0,0"
+                Command="{Binding LoginCommand}"/>
+        <Label Content="Powered By UsCreativity" Grid.Row="4" Margin="0,45,0,0" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

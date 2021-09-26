@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Contact.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Contact.Models
+namespace Contact.Model
 {
-    public class Users
+    public class Users 
     {
         public int UserId;
         public string Name;
