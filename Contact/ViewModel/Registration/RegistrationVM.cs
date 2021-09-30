@@ -3,6 +3,7 @@ using Contact.Repository.Generic;
 using Contact.ViewModel.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,62 +12,60 @@ using System.Windows.Input;
 
 namespace Contact.ViewModel.Registration
 {
-    public class RegistrationVM:ViewModelBase
+    public class RegistrationVM : ViewModelBase
     {
         private UserRepo _repository;
-        private Users users=null;
-        private int _userid;
-        public int UserId
-        {
-            get
-            {
-                return _userid;
-            }
-            set
-            {
-                _userid = value;
-                OnPropertyChanged("UserId");
-            }
-        }
-        private string _name;
+        private Users users = null;
         public string Name
         {
             get
             {
-                return _name;
+                return users.Name;
             }
             set
             {
-                _name = value;
+                users.Name = value;
                 OnPropertyChanged("Name");
             }
         }
 
-        private string _email;
         public string Email
         {
             get
             {
-                return _email;
+                return users.Email;
             }
             set
             {
-                _email = value;
+                users.Email = value;
                 OnPropertyChanged("Email");
             }
         }
 
-        private string _password;
         public string Password
         {
             get
             {
-                return _password;
+                return users.Password;
             }
             set
             {
-                _password = value;
+                users.Password = value;
                 OnPropertyChanged("Password");
+            }
+        }
+
+        private string _confirmPassword;
+        public string ConfirmPassword
+        {
+            get
+            {
+                return _confirmPassword;
+            }
+            set
+            {
+                _confirmPassword = value;
+                OnPropertyChanged("ConfirmPassword");
             }
         }
 
@@ -90,11 +89,8 @@ namespace Contact.ViewModel.Registration
 
         public void SaveUser()
         {
-            if(users != null)
+            if (users != null)
             {
-                users.Name = Name;
-                users.Email = Email;
-                users.Password = Password;
                 try
                 {
                     _repository.RegisterUser(users);

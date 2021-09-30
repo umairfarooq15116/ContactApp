@@ -13,34 +13,33 @@ using System.Windows;
 
 namespace Contact.ViewModel.Login
 {
-    public class LoginVM:ViewModelBase
+    public class LoginVM : ViewModelBase
     {
-        private string _name;
         private Users users = null;
         private UserRepo _repository;
         public string Name
         {
             get
             {
-                return _name;
+                return users.Name;
             }
             set
             {
-                _name = value;
+                users.Name = value;
                 OnPropertyChanged("Name");
             }
         }
-        private string _password;
+
         public string Password
         {
             get
             {
-                return _password;
+                return users.Password;
             }
             set
             {
-                _password = value;
-                OnPropertyChanged("Name");
+                users.Password = value;
+                OnPropertyChanged("Password");
             }
         }
         private ICommand _loginCommand;
@@ -63,8 +62,6 @@ namespace Contact.ViewModel.Login
         {
             if(users != null)
             {
-                users.Name = Name;
-                users.Password = Password;
                 try
                 {
                     if (_repository.VerifyUserNamePassword(users))

@@ -19,10 +19,10 @@
         <Label Content="Contact" Grid.Row="0"  HorizontalAlignment="Center"/>
         <Label Content="Username :" Grid.Row="1" HorizontalAlignment="Left" Margin="30,0,0,0"/>
         <TextBox  Grid.Row="1"  Width="180" Height="25" HorizontalAlignment="Center" Margin="8,0,0,8"
-                  Text="{Binding Path=Name,Mode=TwoWay}"/>
+                  Text="{Binding Name,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
         <Label Content="Password :" Grid.Row="2" HorizontalAlignment="Left" Margin="30,0,0,0"/>
         <components:BindablePasswordBox  Grid.Row="2" Width="180" Height="25"  HorizontalAlignment="Center" Margin="8,0,0,8"
-                  Password="{Binding Password,Mode=TwoWay}"/>
+                  Password="{Binding Password,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
         <Button Content="LOGIN" Grid.Row="3" Width="85" Height="25" HorizontalAlignment="Center" Margin="0,20,0,0"
                 Command="{Binding LoginCommand}"/>
         <Label Content="Powered By UsCreativity" Grid.Row="4" Margin="0,45,0,0" HorizontalAlignment="Center"/>

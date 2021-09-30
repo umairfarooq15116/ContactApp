@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contact.View"
+        xmlns:components="clr-namespace:Contact.Components"
         mc:Ignorable="d"
-        Title="Registration" Height="400" Width="500">
+        Title="Registration" Height="400" Width="500"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -15,20 +17,36 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <!--Application Mono-->
         <Label Content="Mono" Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,10"/>
+        <!--Registration Label-->
         <Label Content="REGISTRATION" Grid.Row="1" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <!--Username Label-->
         <Label Content="Username" Grid.Row="2" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,0,5,10"/>
+        <!--Name Textbox-->
         <TextBox Name="txtName" Grid.Row="2" HorizontalAlignment="Center" Width="230" Margin="8,0,0,8" 
-                 Text="{Binding Name}"/>
+                 Text="{Binding Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <!--Email Label-->
         <Label Content="Email" Grid.Row="3" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,0,5,10"/>
+        <!--Email Textbox-->
         <TextBox Name="txtEmail" Grid.Row="3" HorizontalAlignment="Center" Width="230" Margin="8,0,0,8" 
-                 Text="{Binding Email}"/>
+                 Text="{Binding Email,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        <!--Password Label-->
         <Label Content="Password" Grid.Row="4" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,0,5,10"/>
-        <TextBox Name="txtPassword" Grid.Row="4" HorizontalAlignment="Center" Width="230" Margin="8,0,0,8" 
-                 Text="{Binding Password}"/>
-        <Button Content="REGISTER" Grid.Row="5" Width="85" Height="25" HorizontalAlignment="Center" Margin="0,20,0,0"
+        <!--Password Textbox-->
+        <components:BindablePasswordBox  Grid.Row="4" HorizontalAlignment="Center" Width="230" Margin="8,0,0,8" 
+                 Password="{Binding Password,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+        <!--Confirm Password Label-->
+        <Label Content="Confirm Password" Grid.Row="5" HorizontalAlignment="Left" FontWeight="Bold" Margin="20,0,5,10"/>
+        <!--Confirm Password Textbox-->
+        <components:BindablePasswordBox  Grid.Row="5" HorizontalAlignment="Center" Width="230" Margin="8,0,0,8" 
+                 Password="{Binding ConfirmPassword,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
+        <!--Button-->
+        <Button Content="REGISTER" Grid.Row="6" Width="85" Height="25" HorizontalAlignment="Center" Margin="0,20,0,0"
                 Command="{Binding RegisterCommand}"/>
-        <Label Content="Powered By UsCreativity" Grid.Row="6" Margin="0,100,0,0" HorizontalAlignment="Center"/>
+        <!--Created By Label-->
+        <Label Content="Powered By UsCreativity" Grid.Row="7" Margin="0,100,0,0" HorizontalAlignment="Center"/>
     </Grid>
 </Window>
